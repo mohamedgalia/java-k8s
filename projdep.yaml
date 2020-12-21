@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-dep
+  labels:
+    name: java-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-dep
+  template:
+    metadata:
+      labels:
+        app: java-dep
+    spec:
+      containers:
+      - name: java-dep
+        image: mohamedgalia/java-img
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
