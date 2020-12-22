@@ -5,8 +5,8 @@ RUN git clone https://github.com/spring-projects/spring-petclinic.git
 FROM maven:3.5-jdk-8-alpine as bulid
 WORKDIR /app
 COPY --from=clone /app/spring-petclinic /app
-#RUN mvn install
-CMD "./mvnw package"
+RUN mvn install
+#CMD "./mvnw package"
 
 FROM openjdk:8-jre-alpine
 WORKDIR /app
